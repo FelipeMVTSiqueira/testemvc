@@ -7,13 +7,14 @@
 //rotas eh entender o que o usuario digitou e direcionalo pra onde for
 //as infos sao pegas pelo metodo GET
 
-$rota = key($_GET);
+$rota = key($_GET)?key($_GET):"home"; //if ternário
 $controller = $rota."Controller";
 
 include "controllers/".$controller.".php";
 
 $obj = new $controller();
 
-$obj->viewHome();
+$obj->acao($rota);
+
 
 //var_dump($rota);
